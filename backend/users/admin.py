@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import Match, MatchDenied, MatchRequest, User
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 
@@ -15,3 +16,8 @@ class UserAdmin(auth_admin.UserAdmin):
     fieldsets = (("User", {"fields": ("name",)}),) + auth_admin.UserAdmin.fieldsets
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
+
+
+admin.site.register(Match)
+admin.site.register(MatchRequest)
+admin.site.register(MatchDenied)
